@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="midnight">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forever Gift — هدية لا تُنسى</title>
+<meta name="description" content="اصنع هدية رقمية تفاعلية لا تُنسى لشخص تحبه: قصة، ذكريات، رسالة، وموسيقى في تجربة سينمائية واحدة.">
+<meta name="theme-color" content="#0a0509">
+<meta property="og:title" content="Forever Gift — هدية رقمية لا تُنسى">
+<meta property="og:description" content="اصنع هدية رقمية تفاعلية لشخص تحبه، واحصل على رابط لتشاركه معه.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23c9a15a' d='M16 29S3 20.5 3 11.8C3 7 6.8 3.6 11 3.6c2.6 0 5 1.3 5 1.3s2.4-1.3 5-1.3c4.2 0 8 3.4 8 8.2C29 20.5 16 29 16 29z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Dancing+Script:wght@600;700&family=Cairo:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ===================================================================
+   1. CSS VARIABLES / THEME ENGINE
+=================================================================== */
+:root{
+  --bg-0:#07050a;
+  --bg-1:#140a12;
+  --bg-2:#1c0d16;
+  --burgundy:#3e0f1f;
+  --dark-red:#5c1220;
+  --accent:#8a2036;
+  --pink:#f0c9d6;
+  --gold:#c9a15a;
+  --gold-soft:#e3c98a;
+  --ivory:#f6efe9;
+  --ink:#f5eee9;
+  --ink-dim:#c9bcc0;
+  --glass:rgba(255,255,255,0.055);
+  --glass-strong:rgba(255,255,255,0.09);
+  --glass-border:rgba(255,255,255,0.14);
+  --shadow:rgba(0,0,0,0.55);
+  --glow:rgba(200,60,90,0.35);
+  --radius-lg:26px;
+  --radius-md:16px;
+  --radius-sm:10px;
+  --font-display:'Cormorant Garamond', 'Cairo', serif;
+  --font-script:'Dancing Script','Cairo', cursive;
+  --font-body:'Manrope','Cairo', sans-serif;
+  --ease:cubic-bezier(.22,.68,.12,1);
+  --blur-amt:18px;
+  --particle-opacity:0.9;
+}
+
+[data-theme="rose"]{
+  --bg-0:#0c0508; --bg-1:#1c0a10; --bg-2:#2a0e16;
+  --burgundy:#5a1a2c; --dark-red:#7a2438; --accent:#c65b78;
+  --pink:#f7d6e0; --gold:#d9a6a0; --gold-soft:#eec7bf; --ivory:#fbeeec;
+  --glow:rgba(214,110,140,0.4);
+}
+[data-theme="elegant"]{
+  --bg-0:#050505; --bg-1:#0d0d0d; --bg-2:#141414;
+  --burgundy:#1c1c1c; --dark-red:#242424; --accent:#c9a15a;
+  --pink:#e9d9b8; --gold:#d8b568; --gold-soft:#f0d99a; --ivory:#f3ede0;
+  --glass:rgba(255,255,255,0.045); --glass-border:rgba(216,181,104,0.22);
+  --glow:rgba(201,161,90,0.28); --blur-amt:14px;
+}
+[data-theme="galaxy"]{
+  --bg-0:#050414; --bg-1:#0a0a26; --bg-2:#120f36;
+  --burgundy:#241a52; --dark-red:#33256e; --accent:#7d5cff;
+  --pink:#c9b8ff; --gold:#8fd3ff; --gold-soft:#b7e3ff; --ivory:#eee9ff;
+  --glow:rgba(125,92,255,0.4);
+}
+[data-theme="minimal"]{
+  --bg-0:#faf7f4; --bg-1:#f3eee9; --bg-2:#ece4de;
+  --burgundy:#e8dcd4; --dark-red:#d8c4ba; --accent:#a9776a;
+  --pink:#c98f83; --gold:#a9776a; --gold-soft:#c79c8f; --ivory:#2a2321;
+  --ink:#2a2321; --ink-dim:#6b5c56;
+  --glass:rgba(20,15,12,0.035); --glass-strong:rgba(20,15,12,0.06);
+  --glass-border:rgba(30,20,15,0.12); --shadow:rgba(60,40,30,0.12);
+  --glow:rgba(169,119,106,0.18); --blur-amt:10px; --particle-opacity:0.35;
+}
+[data-theme="sunset"]{
+  --bg-0:#0c0508; --bg-1:#230e12; --bg-2:#3a1414;
+  --burgundy:#7a2e1f; --dark-red:#a3421f; --accent:#e0793f;
+  --pink:#ffcf9e; --gold:#f3a35c; --gold-soft:#ffcf9e; --ivory:#fff3e6;
+  --glow:rgba(224,121,63,0.42);
+}
+
+*,*::before,*::after{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+html,body{height:100%;}
+body{
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, var(--bg-2), transparent 60%),
+    radial-gradient(ellipse 70% 50% at 90% 90%, var(--burgundy) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg-0), var(--bg-1) 40%, var(--bg-0));
+  background-attachment:fixed;
+  color:var(--ink);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  min-height:100%;
+  -webkit-font-smoothing:antialiased;
+  transition:background .8s var(--ease);
+}
+::selection{background:var(--accent); color:var(--ivory);}
+img{max-width:100%; display:block;}
+button{font-family:inherit; cursor:pointer;}
+a{color:inherit;}
+.hidden{display:none !important;}
+.visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);}
+:focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px;}
+
+/* container helpers */
+.wrap{max-width:1080px; margin:0 auto; padding:0 22px;}
+.section{position:relative; padding:96px 0; z-index:2;}
+.eyebrow-label{font-family:var(--font-script); font-size:1.3rem; color:var(--gold-soft); opacity:.9;}
+.heading-xl{font-family:var(--font-display); font-weight:600; font-size:clamp(2.1rem,7vw,3.6rem); line-height:1.15; color:var(--ivory);}
+.heading-lg{font-family:var(--font-display); font-weight:600; font-size:clamp(1.7rem,5vw,2.6rem); color:var(--ivory);}
+.text-muted{color:var(--ink-dim); line-height:1.9; font-size:1.02rem;}
+.center{text-align:center;}
+
+/* ===================================================================
+   2. GLOBAL COMPONENTS: buttons, glass cards
+=================================================================== */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  padding:15px 30px; border-radius:100px; border:1px solid var(--glass-border);
+  background:linear-gradient(135deg, var(--accent), var(--dark-red));
+  color:var(--ivory); font-weight:600; font-size:1rem; letter-spacing:.2px;
+  box-shadow:0 10px 30px -8px var(--glow); position:relative; overflow:hidden;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  min-height:50px; -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(.96);}
+.btn:hover{transform:translateY(-2px); box-shadow:0 16px 40px -8px var(--glow);}
+.btn.ghost{background:var(--glass); backdrop-filter:blur(var(--blur-amt)); border:1px solid var(--glass-border); box-shadow:none;}
+.btn.ghost:hover{background:var(--glass-strong);}
+.btn.small{padding:10px 18px; font-size:.88rem; min-height:40px;}
+.btn[disabled]{opacity:.4; pointer-events:none;}
+
+.glass-panel{
+  background:var(--glass);
+  backdrop-filter:blur(var(--blur-amt));
+  -webkit-backdrop-filter:blur(var(--blur-amt));
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius-lg);
+  box-shadow:0 20px 60px -20px var(--shadow), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.icon-heart{display:inline-block; filter:drop-shadow(0 0 6px var(--glow));}
+
+/* ===================================================================
+   3. BACKGROUND / PARTICLES CANVAS
+=================================================================== */
+#bg-canvas{position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;}
+.cursor-glow{position:fixed; width:340px; height:340px; border-radius:50%; pointer-events:none; z-index:1;
+  background:radial-gradient(circle, var(--glow), transparent 70%); mix-blend-mode:screen;
+  transform:translate(-50%,-50%); opacity:0; transition:opacity .4s ease; will-change:transform;}
+@media (hover:hover) and (pointer:fine){ .cursor-glow.active{opacity:.55;} }
+
+/* ===================================================================
+   4. INTRO CINEMATIC SCREEN
+=================================================================== */
+#intro-screen{
+  position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(ellipse at 50% 40%, #150910, #060306 75%);
+  transition:opacity 1s var(--ease), visibility 1s;
+}
+#intro-screen.leaving{opacity:0; visibility:hidden; pointer-events:none;}
+.intro-inner{text-align:center; padding:20px; position:relative; z-index:2;}
+.intro-line{font-family:var(--font-display); font-size:clamp(1.5rem,6vw,2.5rem); color:var(--ivory);
+  opacity:0; transform:translateY(16px); transition:opacity 1.1s var(--ease), transform 1.1s var(--ease);}
+.intro-line.show{opacity:1; transform:translateY(0);}
+.intro-line + .intro-line{margin-top:14px;}
+
+.gift-box{
+  margin:44px auto 0; width:150px; height:150px; position:relative;
+  opacity:0; transform:scale(.7) translateY(20px); transition:opacity 1s var(--ease) .3s, transform 1s var(--ease) .3s;
+}
+.gift-box.show{opacity:1; transform:scale(1) translateY(0);}
+.gift-box .box-body{
+  position:absolute; inset:34px 0 0 0; height:96px; border-radius:14px;
+  background:linear-gradient(145deg, var(--accent), var(--dark-red));
+  box-shadow:0 20px 50px -14px var(--glow), inset 0 1px 0 rgba(255,255,255,.25);
+  transform-style:preserve-3d;
+}
+.gift-box .box-lid{
+  position:absolute; top:22px; left:-6px; right:-6px; height:26px; border-radius:10px;
+  background:linear-gradient(145deg, var(--gold-soft), var(--gold));
+  box-shadow:0 8px 20px -6px rgba(0,0,0,.5); transform-origin:center left;
+  transition:transform .9s var(--ease), opacity .5s ease;
+}
+.gift-box .ribbon-v{position:absolute; top:34px; left:50%; width:16px; height:96px; transform:translateX(-50%);
+  background:linear-gradient(180deg, var(--gold-soft), var(--gold));}
+.gift-box .ribbon-h{position:absolute; top:22px; left:0; right:0; height:16px; margin-top:36px;
+  background:linear-gradient(90deg, var(--gold-soft), var(--gold));}
+.gift-box .bow{position:absolute; top:2px; left:50%; transform:translateX(-50%); font-size:34px; filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));}
+#intro-open-btn{margin-top:46px; opacity:0; transform:translateY(14px); transition:opacity 1s var(--ease) .5s, transform 1s var(--ease) .5s;}
+#intro-open-btn.show{opacity:1; transform:translateY(0);}
+.intro-screen.opening .gift-box .box-lid{transform:translateY(-70px) rotate(-35deg); opacity:0;}
+.light-burst{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none;}
+.light-burst span{position:absolute; width:6px; height:6px; border-radius:50%; background:var(--gold-soft); opacity:0;}
+
+/* ===================================================================
+   5. PASSWORD GATE
+=================================================================== */
+#password-screen{position:fixed; inset:0; z-index:95; display:flex; align-items:center; justify-content:center; padding:24px;
+  background:radial-gradient(ellipse at 50% 30%, #170a12, #060306 80%);}
+.password-card{max-width:380px; width:100%; padding:40px 28px; text-align:center;}
+.password-card input{
+  width:100%; margin-top:22px; padding:14px 16px; border-radius:100px; text-align:center;
+  border:1px solid var(--glass-border); background:rgba(255,255,255,.05); color:var(--ink); font-size:1rem; letter-spacing:2px;
+}
+.password-card input:focus{border-color:var(--gold);}
+.password-card .error-msg{color:#e88; margin-top:14px; font-size:.9rem; opacity:0; transition:opacity .3s;}
+.password-card .error-msg.show{opacity:1; animation:shake .4s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+
+/* ===================================================================
+   6. GIFT EXPERIENCE — Recipient Reveal
+=================================================================== */
+#gift-app{position:relative; z-index:2;}
+.reveal-screen{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 22px;}
+.reveal-line{font-family:var(--font-display); font-size:clamp(1.3rem,5vw,1.9rem); color:var(--ink-dim);
+  opacity:0; transform:translateY(14px); transition:opacity 1s var(--ease), transform 1s var(--ease);}
+.reveal-line.show{opacity:1; transform:translateY(0);}
+.reveal-name{font-family:var(--font-script); font-size:clamp(2.6rem,11vw,4.5rem); color:var(--gold-soft); margin:18px 0;
+  opacity:0; transform:translateY(20px) scale(.9); transition:opacity 1.1s var(--ease), transform 1.1s var(--ease);
+  filter:drop-shadow(0 0 22px var(--glow));}
+.reveal-name.show{opacity:1; transform:translateY(0) scale(1);}
+.reveal-msg{max-width:520px; margin:22px auto 0; opacity:0; transform:translateY(14px); transition:opacity 1s var(--ease), transform 1s var(--ease);}
+.reveal-msg.show{opacity:1; transform:translateY(0);}
+.scroll-cue{margin-top:52px; opacity:0; transition:opacity 1s ease;}
+.scroll-cue.show{opacity:.75;}
+.scroll-cue .chevron{width:22px; height:22px; border-left:2px solid var(--gold-soft); border-bottom:2px solid var(--gold-soft);
+  transform:rotate(-45deg); margin:0 auto; animation:bounceDown 2s infinite;}
+@keyframes bounceDown{0%,100%{transform:rotate(-45deg) translateY(0);}50%{transform:rotate(-45deg) translateY(8px);}}
+
+/* ===================================================================
+   7. HERO / LOVE TIMER
+=================================================================== */
+.hero-section{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 20px;}
+.hero-tagline{font-family:var(--font-script); font-size:clamp(1.4rem,5vw,2rem); color:var(--gold-soft); margin-bottom:26px;}
+.hero-names{display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; font-family:var(--font-display); font-size:clamp(1.8rem,7vw,3.2rem); font-weight:600;}
+.hero-names .heart-sep{font-size:.7em; filter:drop-shadow(0 0 10px var(--glow));}
+.hero-since{margin-top:18px; color:var(--ink-dim); letter-spacing:1px; font-size:.95rem;}
+.hero-since strong{display:block; color:var(--ivory); font-family:var(--font-display); font-size:1.3rem; margin-top:4px;}
+
+.love-timer{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:560px; margin:48px auto 0; width:100%;}
+@media(min-width:640px){.love-timer{grid-template-columns:repeat(6,1fr); gap:14px;}}
+.timer-card{padding:16px 6px; text-align:center;}
+.timer-value{font-family:var(--font-display); font-size:clamp(1.5rem,5vw,2.1rem); color:var(--gold-soft); font-variant-numeric:tabular-nums;
+  transition:transform .3s var(--ease); display:inline-block;}
+.timer-value.tick{animation:tickUp .4s var(--ease);}
+@keyframes tickUp{0%{transform:translateY(6px); opacity:.3;}100%{transform:translateY(0); opacity:1;}}
+.timer-label{margin-top:6px; font-size:.72rem; letter-spacing:.5px; color:var(--ink-dim);}
+
+/* ===================================================================
+   8. OUR STORY TIMELINE
+=================================================================== */
+.timeline{position:relative; margin-top:56px; max-width:820px; margin-inline:auto;}
+.timeline::before{content:'';position:absolute; top:0; bottom:0; left:22px; width:2px;
+  background:linear-gradient(180deg, transparent, var(--glass-border) 8%, var(--glass-border) 92%, transparent);}
+@media(min-width:820px){.timeline::before{left:50%; transform:translateX(-50%);}}
+.timeline-item{position:relative; padding:0 0 46px 58px; opacity:0; transform:translateY(30px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.timeline-item.in-view{opacity:1; transform:translateY(0);}
+@media(min-width:820px){
+  .timeline-item{width:50%; padding:0 40px 60px;}
+  .timeline-item:nth-child(odd){margin-inline-start:0; text-align:right;}
+  .timeline-item:nth-child(even){margin-inline-start:50%; text-align:left;}
+  .timeline-item:nth-child(odd){transform:translateX(30px);}
+  .timeline-item:nth-child(even){transform:translateX(-30px);}
+  .timeline-item.in-view{transform:translateX(0);}
+}
+.timeline-dot{position:absolute; left:14px; top:4px; width:18px; height:18px; border-radius:50%;
+  background:var(--gold); box-shadow:0 0 0 6px var(--glass), 0 0 20px var(--glow);}
+@media(min-width:820px){
+  .timeline-item:nth-child(odd) .timeline-dot{left:auto; right:-9px;}
+  .timeline-item:nth-child(even) .timeline-dot{left:-9px;}
+}
+.timeline-card{padding:20px 22px;}
+.timeline-date{font-family:var(--font-script); color:var(--gold-soft); font-size:1.15rem;}
+.timeline-title{font-family:var(--font-display); font-size:1.3rem; margin:6px 0 8px; color:var(--ivory);}
+.timeline-desc{color:var(--ink-dim); font-size:.95rem; line-height:1.8;}
+.timeline-img{margin-top:12px; border-radius:var(--radius-md); overflow:hidden; aspect-ratio:16/10; object-fit:cover; width:100%;}
+
+/* ===================================================================
+   9. MEMORY GALLERY + LIGHTBOX
+=================================================================== */
+.gallery-grid{column-count:2; column-gap:12px; margin-top:44px;}
+@media(min-width:640px){.gallery-grid{column-count:3;}}
+.gallery-item{break-inside:avoid; margin-bottom:12px; border-radius:var(--radius-md); overflow:hidden; position:relative;
+  cursor:pointer; border:1px solid var(--glass-border); transition:transform .35s var(--ease);}
+.gallery-item:active{transform:scale(.97);}
+.gallery-item img{width:100%; display:block; transition:transform .6s var(--ease);}
+@media(hover:hover){.gallery-item:hover img{transform:scale(1.07);}}
+.gallery-cap{position:absolute; inset:auto 0 0 0; padding:18px 12px 10px; font-size:.8rem; color:var(--ivory);
+  background:linear-gradient(0deg, rgba(0,0,0,.7), transparent);}
+
+#lightbox{position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:20px;
+  background:rgba(4,2,4,.88); backdrop-filter:blur(10px); opacity:0; visibility:hidden; transition:opacity .4s ease, visibility .4s;}
+#lightbox.open{opacity:1; visibility:visible;}
+#lightbox img{max-height:78vh; max-width:100%; border-radius:14px; box-shadow:0 30px 80px rgba(0,0,0,.6);
+  opacity:0; transform:scale(.92); transition:opacity .4s ease, transform .4s ease;}
+#lightbox.open img{opacity:1; transform:scale(1);}
+#lightbox .lb-caption{color:var(--ink-dim); text-align:center; margin-top:14px; font-size:.9rem;}
+.lb-btn{position:absolute; top:50%; transform:translateY(-50%); background:var(--glass); border:1px solid var(--glass-border);
+  width:44px; height:44px; border-radius:50%; color:var(--ivory); font-size:1.3rem; display:flex; align-items:center; justify-content:center;
+  backdrop-filter:blur(10px);}
+#lb-prev{left:14px;} #lb-next{right:14px;}
+#lb-close{position:absolute; top:18px; right:18px; left:auto;}
+
+/* ===================================================================
+   10. LOVE LETTER
+=================================================================== */
+.letter-envelope{width:min(320px,80vw); aspect-ratio:1.5/1; margin:44px auto 0; position:relative; cursor:pointer;}
+.env-back{position:absolute; inset:0; border-radius:10px; background:linear-gradient(145deg, var(--dark-red), var(--burgundy)); box-shadow:0 20px 50px -14px var(--shadow);}
+.env-flap{position:absolute; top:0; left:0; right:0; height:52%; background:linear-gradient(160deg, var(--accent), var(--dark-red));
+  clip-path:polygon(0 0,100% 0,50% 100%); transform-origin:top center; transition:transform .8s var(--ease); border-radius:10px 10px 0 0;}
+.env-seal{position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 4px 14px rgba(0,0,0,.4); z-index:3;}
+.letter-envelope.opened .env-flap{transform:rotateX(180deg); z-index:1;}
+.letter-envelope.opened .env-seal{opacity:0;}
+.letter-paper{position:absolute; left:6%; right:6%; bottom:6%; top:30%; background:var(--ivory); border-radius:6px; color:#3a2a28;
+  box-shadow:0 20px 40px rgba(0,0,0,.4); transform:translateY(0); opacity:0; transition:transform .8s .1s var(--ease), opacity .6s .1s ease; z-index:2; overflow:hidden;}
+.letter-envelope.opened .letter-paper{transform:translateY(-42%) scale(1.35); opacity:1;}
+.letter-full{max-width:560px; margin:34px auto 0; padding:38px 30px; background:var(--ivory); color:#3a2a28; border-radius:var(--radius-md);
+  box-shadow:0 30px 70px rgba(0,0,0,.4); display:none; font-family:var(--font-display); font-size:1.1rem; line-height:2;}
+.letter-full.show{display:block; animation:fadeUp .8s var(--ease);}
+@keyframes fadeUp{from{opacity:0; transform:translateY(18px);}to{opacity:1; transform:translateY(0);}}
+.letter-signature{margin-top:22px; font-family:var(--font-script); font-size:1.6rem; text-align:end; color:var(--dark-red);}
+.letter-date{margin-top:6px; font-size:.85rem; color:#7a655f; text-align:end;}
+
+/* ===================================================================
+   11. SECRET / SURPRISE SECTION
+=================================================================== */
+.secret-box{text-align:center; margin-top:30px;}
+.secret-reveal{max-width:520px; margin:26px auto 0; padding:28px; display:none; opacity:0; transform:translateY(14px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.secret-reveal.show{display:block; opacity:1; transform:translateY(0);}
+.pulse-heart{display:inline-block; animation:pulseHeart 1.6s infinite;}
+@keyframes pulseHeart{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+
+/* ===================================================================
+   12. FLOATING MUSIC PLAYER
+=================================================================== */
+#music-player{position:fixed; bottom:18px; inset-inline:0; margin:0 auto; width:min(340px,92vw); z-index:60;
+  padding:10px 14px; display:flex; align-items:center; gap:12px; border-radius:100px; transform:translateY(120%); transition:transform .6s var(--ease);}
+#music-player.show{transform:translateY(0);}
+.vinyl{width:40px; height:40px; border-radius:50%; flex:none; background:
+  radial-gradient(circle at center, var(--gold) 0 10%, #1a1214 11% 30%, var(--dark-red) 31% 60%, #1a1214 61%);
+  border:2px solid rgba(255,255,255,.15); animation:spin 3.2s linear infinite; animation-play-state:paused;}
+.vinyl.playing{animation-play-state:running;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.music-meta{flex:1; min-width:0;}
+.music-title{font-size:.82rem; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.music-artist{font-size:.72rem; color:var(--ink-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.music-progress{height:3px; border-radius:2px; background:rgba(255,255,255,.15); margin-top:5px; overflow:hidden;}
+.music-progress-bar{height:100%; width:0%; background:var(--gold); transition:width .2s linear;}
+#music-toggle{width:36px; height:36px; border-radius:50%; border:1px solid var(--glass-border); background:var(--glass-strong);
+  color:var(--ivory); display:flex; align-items:center; justify-content:center; flex:none; font-size:.95rem;}
+
+/* ===================================================================
+   13. FINAL REVEAL
+=================================================================== */
+.final-section{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:60px 22px;}
+.final-line{font-family:var(--font-display); font-size:clamp(1.3rem,5vw,2rem); opacity:0; transform:translateY(14px);
+  transition:opacity 1s var(--ease), transform 1s var(--ease);}
+.final-line.show{opacity:1; transform:translateY(0);}
+.final-names{margin-top:26px; font-family:var(--font-script); font-size:clamp(2rem,8vw,3rem); color:var(--gold-soft);
+  opacity:0; transition:opacity 1.2s var(--ease);}
+.final-names.show{opacity:1;}
+.final-forever{margin-top:14px; letter-spacing:3px; font-size:.85rem; color:var(--ink-dim); text-transform:uppercase;
+  opacity:0; transition:opacity 1.2s var(--ease);}
+.final-forever.show{opacity:1;}
+
+/* ===================================================================
+   14. LANDING PAGE
+=================================================================== */
+#landing{min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:60px 22px; position:relative; z-index:2;}
+.landing-badge{font-family:var(--font-script); font-size:1.5rem; color:var(--gold-soft);}
+.landing-actions{margin-top:34px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+.landing-features{display:grid; grid-template-columns:1fr; gap:14px; max-width:720px; margin:56px auto 0; width:100%;}
+@media(min-width:700px){.landing-features{grid-template-columns:repeat(3,1fr);}}
+.feature-card{padding:22px; text-align:center;}
+.feature-card .fi{font-size:1.6rem;}
+.feature-card h3{font-family:var(--font-display); font-size:1.1rem; margin:10px 0 6px;}
+.feature-card p{font-size:.85rem; color:var(--ink-dim); line-height:1.7;}
+
+/* ===================================================================
+   15. CREATOR UI
+=================================================================== */
+#creator{position:relative; z-index:2; min-height:100vh; padding:26px 0 120px;}
+.creator-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:22px; flex-wrap:wrap;}
+.creator-progress{display:flex; gap:5px; margin:18px 0 30px; overflow-x:auto; padding-bottom:4px;}
+.progress-dot{flex:1; min-width:22px; height:5px; border-radius:4px; background:var(--glass-border); transition:background .3s ease;}
+.progress-dot.done{background:var(--gold);}
+.progress-dot.active{background:var(--accent);}
+.creator-layout{display:grid; grid-template-columns:1fr; gap:24px;}
+@media(min-width:980px){.creator-layout{grid-template-columns:1fr 1fr; align-items:start;}}
+.creator-tabs{display:flex; gap:8px; margin-bottom:16px;}
+@media(min-width:980px){.creator-tabs{display:none;}}
+.tab-btn{flex:1; padding:10px; border-radius:100px; border:1px solid var(--glass-border); background:var(--glass); color:var(--ink-dim); font-weight:600; font-size:.9rem;}
+.tab-btn.active{background:var(--accent); color:var(--ivory); border-color:transparent;}
+.creator-panel{padding:26px 20px;}
+.creator-preview-wrap{position:sticky; top:20px;}
+@media(max-width:979px){ #panel-preview{display:none;} #panel-preview.show{display:block;} #panel-edit.hide{display:none;} }
+
+.field{margin-bottom:18px;}
+.field label{display:block; font-size:.85rem; color:var(--ink-dim); margin-bottom:7px;}
+.field input[type="text"], .field input[type="date"], .field input[type="time"], .field input[type="url"], .field input[type="password"], .field textarea, .field select{
+  width:100%; padding:12px 14px; border-radius:var(--radius-sm); border:1px solid var(--glass-border);
+  background:rgba(255,255,255,.05); color:var(--ink); font-family:inherit; font-size:.95rem;
+}
+.field textarea{min-height:100px; resize:vertical;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.field small.hint{display:block; margin-top:6px; color:var(--ink-dim); font-size:.75rem; opacity:.8;}
+
+.step-panel{display:none;}
+.step-panel.active{display:block; animation:fadeUp .5s var(--ease);}
+.step-title{font-family:var(--font-display); font-size:1.5rem; margin-bottom:4px;}
+.step-sub{color:var(--ink-dim); font-size:.88rem; margin-bottom:22px;}
+
+.repeat-list{display:flex; flex-direction:column; gap:12px; margin-bottom:16px;}
+.repeat-item{padding:14px; border:1px solid var(--glass-border); border-radius:var(--radius-md); background:rgba(255,255,255,.03); position:relative;}
+.repeat-item .ri-title{font-weight:700; font-size:.92rem;}
+.repeat-item .ri-sub{font-size:.78rem; color:var(--ink-dim); margin-top:2px;}
+.repeat-item .ri-actions{position:absolute; top:10px; left:10px; display:flex; gap:6px;}
+.icon-btn{width:30px; height:30px; border-radius:50%; border:1px solid var(--glass-border); background:var(--glass); display:flex; align-items:center; justify-content:center; font-size:.85rem; color:var(--ink-dim);}
+.icon-btn.danger{color:#e88;}
+
+.theme-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+@media(min-width:500px){.theme-grid{grid-template-columns:repeat(3,1fr);}}
+.theme-choice{border-radius:var(--radius-md); overflow:hidden; border:2px solid transparent; cursor:pointer; text-align:center; padding:14px 8px;
+  background:rgba(255,255,255,.04);}
+.theme-choice.selected{border-color:var(--gold);}
+.theme-swatch{height:46px; border-radius:10px; margin-bottom:8px;}
+.theme-choice span{font-size:.8rem; font-weight:600;}
+
+.creator-nav{display:flex; justify-content:space-between; gap:10px; margin-top:28px;}
+.creator-nav .end{display:flex; gap:10px;}
+
+.preview-frame{width:100%; max-width:320px; margin:0 auto; aspect-ratio:9/18.5; border-radius:36px; border:8px solid #1a1214;
+  overflow:hidden; position:relative; box-shadow:0 30px 70px rgba(0,0,0,.5); background:var(--bg-0);}
+.preview-frame .pf-notch{position:absolute; top:0; left:50%; transform:translateX(-50%); width:40%; height:18px; background:#1a1214; border-radius:0 0 14px 14px; z-index:5;}
+.preview-scroll{position:absolute; inset:0; overflow-y:auto; padding:26px 14px; -webkit-overflow-scrolling:touch;}
+.preview-scroll::-webkit-scrollbar{width:0;}
+#link-result{padding:30px 22px; text-align:center;}
+#link-box{margin-top:18px; padding:14px 16px; border-radius:var(--radius-sm); background:rgba(255,255,255,.06); border:1px solid var(--glass-border);
+  word-break:break-all; font-size:.85rem; direction:ltr; text-align:center;}
+
+/* ===================================================================
+   16. NOT FOUND / ADMIN
+=================================================================== */
+#notfound-screen, #admin-screen{position:relative; z-index:2; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center;}
+.admin-wrap{max-width:760px; width:100%; padding:30px 22px;}
+.admin-stats{display:flex; gap:14px; flex-wrap:wrap; margin:20px 0 26px;}
+.admin-stat{flex:1; min-width:120px; padding:16px; text-align:center;}
+.admin-stat .num{font-family:var(--font-display); font-size:1.8rem; color:var(--gold-soft);}
+.admin-stat .lbl{font-size:.78rem; color:var(--ink-dim);}
+.admin-row{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 14px; border-bottom:1px solid var(--glass-border); flex-wrap:wrap;}
+.admin-row:last-child{border-bottom:none;}
+.admin-row .ar-name{font-weight:700; font-size:.9rem;}
+.admin-row .ar-meta{font-size:.75rem; color:var(--ink-dim);}
+.tag-pill{font-size:.7rem; padding:3px 10px; border-radius:100px; border:1px solid var(--glass-border); color:var(--ink-dim);}
+
+/* ===================================================================
+   17. TOAST + LOADER
+=================================================================== */
+#toast{position:fixed; bottom:90px; left:50%; transform:translateX(-50%) translateY(20px); z-index:300; padding:12px 22px;
+  border-radius:100px; background:rgba(20,10,15,.92); border:1px solid var(--glass-border); font-size:.85rem; opacity:0; transition:all .4s var(--ease); pointer-events:none;}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+.top-nav{position:fixed; top:0; inset-inline:0; z-index:80; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px; pointer-events:none;}
+.top-nav > *{pointer-events:auto;}
+.brand-mark{font-family:var(--font-script); font-size:1.3rem; color:var(--gold-soft); text-decoration:none; text-shadow:0 2px 10px rgba(0,0,0,.5);}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.2s !important; scroll-behavior:auto !important;}
+  .vinyl.playing{animation:none;}
+}
+@media(max-width:380px){ .wrap{padding:0 16px;} .section{padding:70px 0;} }
+</style>
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+<nav class="top-nav" id="topNav">
+  <a href="#" class="brand-mark" id="brandLink">Forever Gift ❤</a>
+  <div></div>
+</nav>
+
+<!-- =================== INTRO CINEMATIC =================== -->
+<section id="intro-screen" role="dialog" aria-label="فتح الهدية">
+  <div class="intro-inner">
+    <p class="intro-line" id="introLine1">لديك هدية...</p>
+    <p class="intro-line" id="introLine2">لكنها ليست هدية عادية.</p>
+    <div class="gift-box" id="giftBox" aria-hidden="true">
+      <div class="ribbon-h"></div>
+      <div class="ribbon-v"></div>
+      <div class="box-body"></div>
+      <div class="env-seal-placeholder"></div>
+      <div class="box-lid"></div>
+      <div class="bow">🎀</div>
+    </div>
+    <div class="light-burst" id="lightBurst"></div>
+    <div id="introOpenBtn">
+      <button class="btn" id="openGiftBtn">افتح هديتك ❤️</button>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PASSWORD GATE =================== -->
+<section id="password-screen" class="hidden" aria-label="هذه الهدية محمية">
+  <div class="glass-panel password-card">
+    <p style="font-size:1.6rem;">🔒</p>
+    <h2 class="heading-lg" style="margin-top:10px;">هذه الهدية لك وحدك ❤️</h2>
+    <p class="text-muted" style="margin-top:8px;">أدخل الكلمة السرية لفتحها</p>
+    <input type="password" id="passwordInput" placeholder="Enter your secret word" aria-label="كلمة المرور">
+    <p class="error-msg" id="passwordError">كلمة غير صحيحة، حاول مرة أخرى ❤️</p>
+    <button class="btn" id="passwordSubmit" style="margin-top:20px; width:100%;">فتح الهدية</button>
+  </div>
+</section>
+
+<!-- =================== LANDING =================== -->
+<main id="landing" class="hidden">
+  <p class="landing-badge">Forever Gift</p>
+  <h1 class="heading-xl" style="margin-top:14px;">اصنع هدية رقمية <br>لا تُنسى ❤️</h1>
+  <p class="text-muted" style="max-width:520px; margin:18px auto 0;">
+    قصة، ذكريات، رسالة، وموسيقى — في تجربة سينمائية واحدة تصنعها بنفسك لشخص تحبه، ثم ترسل له رابطًا خاصًا.
+  </p>
+  <div class="landing-actions">
+    <button class="btn" id="startCreatorBtn">Create Your Gift ✨</button>
+    <button class="btn ghost" id="viewDemoBtn">شاهد هدية تجريبية</button>
+  </div>
+  <div class="landing-features">
+    <div class="glass-panel feature-card"><div class="fi">🎬</div><h3>تجربة سينمائية</h3><p>افتتاحية، عداد حي، ورسالة مخفية.</p></div>
+    <div class="glass-panel feature-card"><div class="fi">🎨</div><h3>ستة أنماط تصميم</h3><p>كل ثيم بشخصية مختلفة تمامًا.</p></div>
+    <div class="glass-panel feature-card"><div class="fi">🔗</div><h3>رابط خاص للمشاركة</h3><p>احفظ هديتك وشاركها بضغطة واحدة.</p></div>
+  </div>
+</main>
+
+<!-- =================== GIFT EXPERIENCE =================== -->
+<main id="gift-app" class="hidden">
+
+  <section class="reveal-screen" id="revealScreen">
+    <p class="reveal-line" id="revealLine1">إلى أجمل شخص في حياتي...</p>
+    <h2 class="reveal-name" id="revealName">Shahd ❤️</h2>
+    <p class="reveal-msg text-muted" id="revealMsg"></p>
+    <div class="scroll-cue" id="scrollCue"><span class="chevron"></span></div>
+  </section>
+
+  <section class="hero-section section" id="heroSection">
+    <p class="hero-tagline" id="heroTagline">قصتنا بدأت من هنا...</p>
+    <div class="hero-names">
+      <span id="heroName1">Ali</span>
+      <span class="heart-sep icon-heart">❤️</span>
+      <span id="heroName2">Shahd</span>
+    </div>
+    <p class="hero-since">Since<strong id="heroSinceDate">14 February 2024</strong></p>
+
+    <div class="love-timer" role="group" aria-label="عداد زمن العلاقة">
+      <div class="glass-panel timer-card"><span class="timer-value" id="tYears">00</span><div class="timer-label">Years</div></div>
+      <div class="glass-panel timer-card"><span class="timer-value" id="tMonths">00</span><div class="timer-label">Months</div></div>
+      <div class="glass-panel timer-card"><span class="timer-value" id="tDays">00</span><div class="timer-label">Days</div></div>
+      <div class="glass-panel timer-card"><span class="timer-value" id="tHours">00</span><div class="timer-label">Hours</div></div>
+      <div class="glass-panel timer-card"><span class="timer-value" id="tMinutes">00</span><div class="timer-label">Minutes</div></div>
+      <div class="glass-panel timer-card"><span class="timer-value" id="tSeconds">00</span><div class="timer-label">Seconds</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="storySection">
+    <div class="wrap">
+      <p class="eyebrow-label center">Our Story</p>
+      <h2 class="heading-lg center" style="margin-top:6px;">حكايتنا</h2>
+      <div class="timeline" id="timelineList"></div>
+    </div>
+  </section>
+
+  <section class="section" id="gallerySection">
+    <div class="wrap">
+      <p class="eyebrow-label center">Memories</p>
+      <h2 class="heading-lg center" style="margin-top:6px;">ذكرياتنا</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="letterSection">
+    <div class="wrap center">
+      <p class="eyebrow-label">Love Letter</p>
+      <h2 class="heading-lg" style="margin-top:6px;">لدي شيء أريد أن أقوله لك...</h2>
+      <div class="letter-envelope" id="letterEnvelope" role="button" tabindex="0" aria-label="افتح الرسالة">
+        <div class="env-back"></div>
+        <div class="letter-paper"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">💌</div>
+      </div>
+      <div class="letter-full" id="letterFull"></div>
+    </div>
+  </section>
+
+  <section class="section" id="secretSection">
+    <div class="wrap secret-box">
+      <button class="btn ghost" id="secretBtn"><span class="pulse-heart">❤️</span> اضغط هنا</button>
+      <div class="glass-panel secret-reveal" id="secretReveal">
+        <p class="eyebrow-label">هناك شيء آخر...</p>
+        <p class="heading-lg" style="margin-top:10px; font-size:1.4rem;" id="secretText"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-section" id="finalSection">
+    <p class="final-line" id="finalLine1">وبين كل الذكريات...</p>
+    <p class="final-line" id="finalLine2" style="margin-top:10px;">أتمنى أن تكون أجمل ذكرياتنا لسه جاية ❤️</p>
+    <p class="final-names" id="finalNames"></p>
+    <p class="final-forever" id="finalForever">Forever &amp; Always</p>
+    <button class="btn ghost" id="replayBtn" style="margin-top:40px;">Replay Our Story ↻</button>
+  </section>
+
+</main>
+
+<!-- floating music player -->
+<div class="glass-panel" id="music-player" aria-label="مشغل الموسيقى">
+  <div class="vinyl" id="vinylDisc"></div>
+  <div class="music-meta">
+    <div class="music-title" id="musicTitle">—</div>
+    <div class="music-artist" id="musicArtist">—</div>
+    <div class="music-progress"><div class="music-progress-bar" id="musicProgressBar"></div></div>
+  </div>
+  <button id="music-toggle" aria-label="تشغيل/إيقاف الموسيقى">▶</button>
+  <audio id="audioEl" preload="none"></audio>
+</div>
+
+<!-- lightbox -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة">
+  <button class="lb-btn" id="lb-close" aria-label="إغلاق">✕</button>
+  <button class="lb-btn" id="lb-prev" aria-label="السابق">‹</button>
+  <div>
+    <img id="lb-img" src="" alt="">
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+  <button class="lb-btn" id="lb-next" aria-label="التالي">›</button>
+</div>
+
+<!-- =================== CREATOR =================== -->
+<section id="creator" class="hidden">
+  <div class="wrap">
+    <div class="creator-head">
+      <div>
+        <p class="eyebrow-label">Create Your Gift</p>
+        <h2 class="heading-lg" style="margin-top:4px;">اصنع هديتك ✨</h2>
+      </div>
+      <button class="btn ghost small" id="backToLanding">إلغاء</button>
+    </div>
+
+    <div class="creator-progress" id="creatorProgress"></div>
+
+    <div class="creator-tabs">
+      <button class="tab-btn active" id="tabEditBtn">Edit</button>
+      <button class="tab-btn" id="tabPreviewBtn">Preview</button>
+    </div>
+
+    <div class="creator-layout">
+      <div id="panel-edit">
+        <div class="glass-panel creator-panel">
+
+          <div class="step-panel active" data-step="1">
+            <h3 class="step-title">أسماؤكما</h3>
+            <p class="step-sub">Your Names</p>
+            <div class="field-row">
+              <div class="field"><label>اسمك (المُرسِل)</label><input type="text" id="f-sender" placeholder="Ali"></div>
+              <div class="field"><label>اسم المستلم</label><input type="text" id="f-receiver" placeholder="Shahd"></div>
+            </div>
+            <div class="field"><label>لغة الهدية</label>
+              <select id="f-lang"><option value="ar">العربية</option><option value="en">English</option></select>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step="2">
+            <h3 class="step-title">تاريخ العلاقة</h3>
+            <p class="step-sub">Relationship Date</p>
+            <div class="field-row">
+              <div class="field"><label>التاريخ</label><input type="date" id="f-date"></div>
+              <div class="field"><label>الوقت (اختياري)</label><input type="time" id="f-time"></div>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step="3">
+            <h3 class="step-title">الرسالة الرئيسية</h3>
+            <p class="step-sub">Main Message — أول ما يراه المستلم</p>
+            <div class="field"><textarea id="f-mainmsg" placeholder="أنتِ أجمل ما حدث لي..."></textarea></div>
+          </div>
+
+          <div class="step-panel" data-step="4">
+            <h3 class="step-title">رسالة الحب الطويلة</h3>
+            <p class="step-sub">Love Letter</p>
+            <div class="field"><textarea id="f-letter" style="min-height:160px;" placeholder="اكتب رسالتك الكاملة هنا..."></textarea></div>
+            <div class="field"><label>التوقيع</label><input type="text" id="f-signature" placeholder="محبك، Ali"></div>
+          </div>
+
+          <div class="step-panel" data-step="5">
+            <h3 class="step-title">ذكريات القصة</h3>
+            <p class="step-sub">Our Story Timeline</p>
+            <div class="repeat-list" id="memoriesList"></div>
+            <button class="btn ghost small" id="addMemoryBtn">+ إضافة ذكرى</button>
+          </div>
+
+          <div class="step-panel" data-step="6">
+            <h3 class="step-title">معرض الصور</h3>
+            <p class="step-sub">Gallery — أدخل روابط الصور</p>
+            <div class="repeat-list" id="galleryList"></div>
+            <button class="btn ghost small" id="addGalleryBtn">+ إضافة صورة</button>
+          </div>
+
+          <div class="step-panel" data-step="7">
+            <h3 class="step-title">الموسيقى</h3>
+            <p class="step-sub">Music (اختياري)</p>
+            <div class="field-row">
+              <div class="field"><label>اسم الأغنية</label><input type="text" id="f-song-title" placeholder="Perfect"></div>
+              <div class="field"><label>الفنان</label><input type="text" id="f-song-artist" placeholder="Ed Sheeran"></div>
+            </div>
+            <div class="field"><label>رابط ملف الصوت (mp3)</label><input type="url" id="f-song-url" placeholder="https://.../song.mp3">
+              <small class="hint">اترك الحقل فارغًا إذا لا تريد موسيقى.</small>
+            </div>
+          </div>
+
+          <div class="step-panel" data-step="8">
+            <h3 class="step-title">اختر الثيم</h3>
+            <p class="step-sub">Theme</p>
+            <div class="theme-grid" id="themeGrid"></div>
+          </div>
+
+          <div class="step-panel" data-step="9">
+            <h3 class="step-title">رسالة سرية</h3>
+            <p class="step-sub">Secret Message</p>
+            <div class="field"><textarea id="f-secret" placeholder="لو رجع بيا الزمن، هختارك تاني."></textarea></div>
+          </div>
+
+          <div class="step-panel" data-step="10">
+            <h3 class="step-title">الحماية</h3>
+            <p class="step-sub">Password (اختياري)</p>
+            <div class="field"><input type="text" id="f-password" placeholder="كلمة سرية بينكما"></div>
+            <small class="hint">اتركها فارغة إذا لا تريد حماية الهدية بكلمة مرور.</small>
+          </div>
+
+          <div class="creator-nav">
+            <button class="btn ghost small" id="stepBackBtn">السابق</button>
+            <div class="end">
+              <button class="btn ghost small" id="saveDraftBtn">حفظ كمسودة</button>
+              <button class="btn small" id="stepNextBtn">التالي</button>
+              <button class="btn small hidden" id="createGiftBtn">Create Gift ✨</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panel-preview" class="creator-preview-wrap">
+        <div class="preview-frame">
+          <div class="pf-notch"></div>
+          <div class="preview-scroll" id="creatorPreviewContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- link result screen -->
+<section id="link-screen" class="hidden">
+  <div class="wrap" style="min-height:100vh; display:flex; align-items:center; justify-content:center;">
+    <div class="glass-panel" id="link-result">
+      <p style="font-size:2rem;">🎉</p>
+      <h2 class="heading-lg" style="margin-top:10px;">تم إنشاء هديتك!</h2>
+      <p class="text-muted" style="margin-top:6px;">شارك هذا الرابط مع من تحب</p>
+      <div id="link-box"></div>
+      <div style="display:flex; gap:10px; justify-content:center; margin-top:22px; flex-wrap:wrap;">
+        <button class="btn small" id="copyLinkBtn">نسخ الرابط</button>
+        <button class="btn ghost small" id="openGiftLinkBtn">فتح الهدية</button>
+        <button class="btn ghost small" id="backHomeBtn">الصفحة الرئيسية</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- not found -->
+<section id="notfound-screen" class="hidden">
+  <div class="glass-panel" style="padding:40px 26px; max-width:420px;">
+    <p style="font-size:2rem;">💔</p>
+    <h2 class="heading-lg" style="margin-top:10px;">هذه الهدية غير موجودة أو انتهت صلاحيتها.</h2>
+    <button class="btn" style="margin-top:24px;" id="createOwnBtn">Create Your Own Gift</button>
+  </div>
+</section>
+
+<!-- admin -->
+<section id="admin-screen" class="hidden">
+  <div class="glass-panel admin-wrap">
+    <h2 class="heading-lg">لوحة التحكم</h2>
+    <div class="admin-stats">
+      <div class="glass-panel admin-stat"><div class="num" id="statTotal">0</div><div class="lbl">إجمالي الهدايا</div></div>
+      <div class="glass-panel admin-stat"><div class="num" id="statActive">0</div><div class="lbl">هدايا مفعّلة</div></div>
+      <div class="glass-panel admin-stat"><div class="num" id="statMode">Demo</div><div class="lbl">وضع التخزين</div></div>
+    </div>
+    <div id="adminList"></div>
+    <div style="margin-top:20px; display:flex; gap:10px; flex-wrap:wrap;">
+      <button class="btn ghost small" id="adminCreateDemo">إنشاء هدية تجريبية</button>
+      <button class="btn ghost small" id="adminBack">رجوع للرئيسية</button>
+    </div>
+  </div>
+</section>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ===================================================================
+   8. FIREBASE CONFIGURATION (optional — leave empty for Demo Mode)
+=================================================================== */
+const FIREBASE_CONFIG = {
+  apiKey: "",
+  authDomain: "",
+  projectId: ""
+};
+let USE_FIREBASE = false;
+let db = null;
+
+function initFirebaseIfConfigured(){
+  if (FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.projectId) {
+    try {
+      const s1 = document.createElement('script');
+      s1.src = "https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js";
+      const s2 = document.createElement('script');
+      s2.src = "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js";
+      s2.onload = () => {
+        try{
+          firebase.initializeApp(FIREBASE_CONFIG);
+          db = firebase.firestore();
+          USE_FIREBASE = true;
+          updateStorageModeLabel();
+        }catch(e){ console.warn('Firebase init failed, using Demo Mode.', e); USE_FIREBASE=false; }
+      };
+      s1.onload = () => document.head.appendChild(s2);
+      document.head.appendChild(s1);
+    } catch(e){ USE_FIREBASE = false; }
+  } else {
+    USE_FIREBASE = false;
+  }
+}
+function updateStorageModeLabel(){
+  const el = document.getElementById('statMode');
+  if (el) el.textContent = USE_FIREBASE ? 'Firebase' : 'Demo (Local)';
+}
+
+/* ===================================================================
+   9. DATA LAYER
+=================================================================== */
+const STORAGE_KEY = 'foreverGifts_v1';
+const ADMIN_PIN = 'admin'; // simple demo gate for the admin screen
+
+function blankGift(){
+  return {
+    id: '',
+    lang: 'ar',
+    sender: '', receiver: '',
+    startDate: '', startTime: '',
+    mainMessage: '',
+    letter: '', signature: '',
+    memories: [],
+    gallery: [],
+    music: { title:'', artist:'', url:'' },
+    theme: 'midnight',
+    secretMessage: '',
+    password: '',
+    active: true,
+    createdAt: 0
+  };
+}
+
+function getAllGiftsLocal(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  }catch(e){ return {}; }
+}
+function setAllGiftsLocal(map){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(map)); }catch(e){ console.warn('storage failed', e); }
+}
+
+function genId(){
+  return Math.random().toString(36).slice(2,7) + Date.now().toString(36).slice(-4);
+}
+
+async function saveGift(gift){
+  if (!gift.id) gift.id = genId();
+  gift.createdAt = gift.createdAt || Date.now();
+  if (USE_FIREBASE && db){
+    try{
+      await db.collection('gifts').doc(gift.id).set(gift);
+      return gift;
+    }catch(e){ console.warn('Firebase save failed, falling back to local.', e); }
+  }
+  const all = getAllGiftsLocal();
+  all[gift.id] = gift;
+  setAllGiftsLocal(all);
+  return gift;
+}
+
+async function loadGift(id){
+  if (id === 'demo') return getDemoGift();
+  if (USE_FIREBASE && db){
+    try{
+      const doc = await db.collection('gifts').doc(id).get();
+      if (doc.exists) return doc.data();
+    }catch(e){ console.warn('Firebase load failed, checking local.', e); }
+  }
+  const all = getAllGiftsLocal();
+  return all[id] || null;
+}
+
+async function deleteGift(id){
+  if (USE_FIREBASE && db){
+    try{ await db.collection('gifts').doc(id).delete(); }catch(e){}
+  }
+  const all = getAllGiftsLocal();
+  delete all[id];
+  setAllGiftsLocal(all);
+}
+
+async function listGiftsForAdmin(){
+  if (USE_FIREBASE && db){
+    try{
+      const snap = await db.collection('gifts').get();
+      const arr = [];
+      snap.forEach(d => arr.push(d.data()));
+      return arr;
+    }catch(e){ console.warn(e); }
+  }
+  const all = getAllGiftsLocal();
+  return Object.values(all);
+}
+
+function getDemoGift(){
+  return {
+    id: 'demo', lang:'ar',
+    sender:'Alex', receiver:'Emma',
+    startDate:'2024-02-14', startTime:'18:30',
+    mainMessage:'كل يوم معك يزيدني يقينًا أنك أجمل ما حدث لي في هذه الحياة.',
+    letter:'لم أكن أعرف أن الحب يشبه هذا... حتى قابلتك. أنتِ الفصل الذي لم أكن أعرف أنني أنتظره في قصتي، وسأظل ممتنًا لكل لحظة جمعتنا. شكرًا لأنكِ أنتِ.',
+    signature:'محبك دائمًا، Alex',
+    memories:[
+      {title:'أول مرة اتكلمنا', date:'يناير 2024', desc:'اليوم الذي بدأ فيه كل شيء، بحديث بسيط تحول لعالم كامل.', img:'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=800&q=60'},
+      {title:'أول خروجة', date:'فبراير 2024', desc:'قهوة، ضحك، ووقت مر بسرعة غريبة.', img:'https://images.unsplash.com/photo-1522098543979-ffc7f79d1f38?w=800&q=60'},
+      {title:'أجمل ذكرى', date:'أغسطس 2024', desc:'رحلة لم ننسَ تفصيلة واحدة منها.', img:'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&q=60'}
+    ],
+    gallery:[
+      {src:'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=700&q=60', caption:'لحظة لا تُنسى'},
+      {src:'https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?w=700&q=60', caption:'يوم مشمس'},
+      {src:'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=700&q=60', caption:'سفر معًا'},
+      {src:'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&q=60', caption:'ضحكة صادقة'},
+      {src:'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=700&q=60', caption:'أمسية هادئة'}
+    ],
+    music:{title:'A Thousand Years', artist:'Christina Perri', url:''},
+    theme:'midnight',
+    secretMessage:'لو رجع بيا الزمن، هختارك تاني، وتاني، وتاني.',
+    password:'', active:true, createdAt:Date.now()
+  };
+}
+
+/* ===================================================================
+   10. APPLICATION STATE
+=================================================================== */
+const state = {
+  route: 'landing', // landing | gift | creator | link | notfound | admin
+  currentGift: null,
+  unlocked: false,
+  timerInterval: null,
+  creatorStep: 1,
+  totalSteps: 10,
+  draft: blankGift(),
+  editingMemoryIdx: null,
+  lightboxIndex: 0,
+  musicPlaying: false,
+  reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+};
+
+const THEMES = [
+  {id:'midnight', name:'Midnight Love', c1:'#3e0f1f', c2:'#8a2036'},
+  {id:'rose', name:'Rose', c1:'#5a1a2c', c2:'#c65b78'},
+  {id:'elegant', name:'Elegant', c1:'#1c1c1c', c2:'#d8b568'},
+  {id:'galaxy', name:'Galaxy', c1:'#241a52', c2:'#7d5cff'},
+  {id:'minimal', name:'Minimal', c1:'#e8dcd4', c2:'#a9776a'},
+  {id:'sunset', name:'Sunset', c1:'#7a2e1f', c2:'#e0793f'}
+];
+
+function applyTheme(themeId){
+  document.documentElement.setAttribute('data-theme', themeId || 'midnight');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(showToast._tm);
+  showToast._tm = setTimeout(()=> t.classList.remove('show'), 2600);
+}
+
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+}
+function safeImg(url, fallbackText){
+  if (!url) return `https://placehold.co/700x500/1c0d16/e3c98a?text=${encodeURIComponent(fallbackText||'❤')}`;
+  return url;
+}
+
+/* ===================================================================
+   6/7. GIFT EXPERIENCE — SCREEN SWITCHING
+=================================================================== */
+function showScreen(id){
+  ['landing','gift-app','creator','link-screen','notfound-screen','admin-screen'].forEach(s=>{
+    document.getElementById(s).classList.toggle('hidden', s !== id);
+  });
+}
+
+function router(){
+  const params = new URLSearchParams(location.search);
+  const giftId = params.get('gift');
+  const isAdmin = params.get('admin') === '1';
+  const isCreate = params.get('create') === '1';
+
+  document.getElementById('intro-screen').classList.add('hidden');
+
+  if (isAdmin){
+    state.route = 'admin';
+    initAdmin();
+    return;
+  }
+  if (isCreate){
+    state.route = 'creator';
+    showScreen('creator');
+    initCreator();
+    return;
+  }
+  if (giftId){
+    state.route = 'gift';
+    openGift(giftId);
+    return;
+  }
+  state.route = 'landing';
+  showScreen('landing');
+  applyTheme('midnight');
+}
+
+/* open a gift by id: load data, show intro cinematic, then reveal */
+async function openGift(id){
+  const gift = await loadGift(id);
+  if (!gift){
+    showScreen('notfound-screen');
+    return;
+  }
+  state.currentGift = gift;
+  applyTheme(gift.theme || 'midnight');
+  document.getElementById('intro-screen').classList.remove('hidden');
+  playIntroSequence();
+}
+
+function playIntroSequence(){
+  const l1 = document.getElementById('introLine1');
+  const l2 = document.getElementById('introLine2');
+  const box = document.getElementById('giftBox');
+  const btnWrap = document.getElementById('introOpenBtn');
+  const delay = state.reducedMotion ? 120 : 700;
+  setTimeout(()=> l1.classList.add('show'), 200);
+  setTimeout(()=> l2.classList.add('show'), 200 + delay);
+  setTimeout(()=> box.classList.add('show'), 200 + delay*1.6);
+  setTimeout(()=> btnWrap.classList.add('show'), 200 + delay*2.2);
+}
+
+function openGiftAnimation(){
+  const intro = document.getElementById('intro-screen');
+  const box = document.getElementById('giftBox');
+  intro.classList.add('opening');
+  box.querySelector('.box-lid').style.transform = 'translateY(-90px) rotate(-40deg)';
+  box.querySelector('.box-lid').style.opacity = '0';
+  spawnBurstParticles();
+  setTimeout(()=>{
+    intro.classList.add('leaving');
+    initGift(state.currentGift);
+  }, state.reducedMotion ? 200 : 900);
+}
+
+function spawnBurstParticles(){
+  const container = document.getElementById('lightBurst');
+  container.innerHTML = '';
+  const count = state.reducedMotion ? 8 : 26;
+  for (let i=0;i<count;i++){
+    const s = document.createElement('span');
+    const angle = (Math.PI*2*i)/count + Math.random()*0.3;
+    const dist = 90 + Math.random()*140;
+    const isHeart = Math.random() > 0.5;
+    s.textContent = isHeart ? '❤' : '';
+    s.style.fontSize = isHeart ? (10+Math.random()*10)+'px' : '';
+    s.style.background = isHeart ? 'transparent' : '';
+    s.style.color = 'var(--gold-soft)';
+    s.style.transition = `transform ${0.9+Math.random()*0.5}s cubic-bezier(.2,.7,.2,1), opacity 1s ease`;
+    container.appendChild(s);
+    requestAnimationFrame(()=>{
+      s.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px) scale(${0.6+Math.random()})`;
+      s.style.opacity = '0';
+    });
+  }
+}
+
+/* ===================================================================
+   initGift — populate & reveal the full gift experience
+=================================================================== */
+function initGift(gift){
+  if (gift.password){
+    document.getElementById('password-screen').classList.remove('hidden');
+    document.getElementById('passwordInput').focus();
+    return;
+  }
+  unlockGift(gift);
+}
+
+function unlockGift(gift){
+  document.getElementById('password-screen').classList.add('hidden');
+  showScreen('gift-app');
+  renderGift(gift);
+  initAnimations();
+  window.scrollTo(0,0);
+  setTimeout(()=> sequenceRecipientReveal(gift), 200);
+}
+
+function renderGift(gift){
+  const isAr = gift.lang !== 'en';
+  document.getElementById('revealLine1').textContent = isAr ? 'إلى أجمل شخص في حياتي...' : 'To the most beautiful person in my life...';
+  document.getElementById('revealName').textContent = gift.receiver + ' ❤️';
+  document.getElementById('revealMsg').textContent = gift.mainMessage || '';
+
+  document.getElementById('heroTagline').textContent = isAr ? 'قصتنا بدأت من هنا...' : 'Every love story has a beginning.';
+  document.getElementById('heroName1').textContent = gift.sender || '—';
+  document.getElementById('heroName2').textContent = gift.receiver || '—';
+  const dt = gift.startDate ? new Date(gift.startDate + 'T' + (gift.startTime || '00:00')) : null;
+  document.getElementById('heroSinceDate').textContent = dt ? formatLongDate(dt, isAr) : '—';
+
+  renderMemories(gift.memories || []);
+  renderGallery(gift.gallery || []);
+  renderLetter(gift);
+  renderMusic(gift.music || {});
+  document.getElementById('secretText').textContent = gift.secretMessage || '';
+  document.getElementById('finalNames').textContent = `${gift.sender || ''} ❤️ ${gift.receiver || ''}`;
+
+  startLoveTimer(dt);
+}
+
+function formatLongDate(date, isAr){
+  const months_ar = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  const months_en = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const m = isAr ? months_ar[date.getMonth()] : months_en[date.getMonth()];
+  return `${date.getDate()} ${m} ${date.getFullYear()}`;
+}
+
+function sequenceRecipientReveal(gift){
+  const l1 = document.getElementById('revealLine1');
+  const nm = document.getElementById('revealName');
+  const msg = document.getElementById('revealMsg');
+  const cue = document.getElementById('scrollCue');
+  const d = state.reducedMotion ? 100 : 650;
+  setTimeout(()=> l1.classList.add('show'), 100);
+  setTimeout(()=> nm.classList.add('show'), 100+d);
+  setTimeout(()=> msg.classList.add('show'), 100+d*2);
+  setTimeout(()=> cue.classList.add('show'), 100+d*2.6);
+}
+
+/* ---- renderMemories: Our Story timeline ---- */
+function renderMemories(memories){
+  const list = document.getElementById('timelineList');
+  list.innerHTML = '';
+  memories.forEach((m)=>{
+    const item = document.createElement('div');
+    item.className = 'timeline-item';
+    item.innerHTML = `
+      <div class="timeline-dot"></div>
+      <div class="glass-panel timeline-card">
+        <div class="timeline-date">${escapeHtml(m.date||'')}</div>
+        <div class="timeline-title">${escapeHtml(m.title||'')}</div>
+        <p class="timeline-desc">${escapeHtml(m.desc||'')}</p>
+        ${m.img ? `<img class="timeline-img" src="${safeImg(m.img,m.title)}" alt="${escapeHtml(m.title||'')}" loading="lazy" onerror="this.src='${safeImg('','❤')}'">` : ''}
+      </div>`;
+    list.appendChild(item);
+  });
+  observeReveal(list.querySelectorAll('.timeline-item'));
+}
+
+/* ---- renderGallery: masonry + lightbox data ---- */
+let currentGalleryData = [];
+function renderGallery(gallery){
+  currentGalleryData = gallery;
+  const grid = document.getElementById('galleryGrid');
+  grid.innerHTML = '';
+  gallery.forEach((g, idx)=>{
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.tabIndex = 0;
+    item.setAttribute('role','button');
+    item.setAttribute('aria-label', 'عرض الصورة: ' + (g.caption||''));
+    item.innerHTML = `<img src="${safeImg(g.src,g.caption)}" alt="${escapeHtml(g.caption||'')}" loading="lazy" onerror="this.src='${safeImg('','❤')}'">
+      ${g.caption ? `<div class="gallery-cap">${escapeHtml(g.caption)}</div>` : ''}`;
+    item.addEventListener('click', ()=> openLightbox(idx));
+    item.addEventListener('keypress', e=>{ if(e.key==='Enter') openLightbox(idx); });
+    grid.appendChild(item);
+  });
+}
+
+function openLightbox(idx){
+  state.lightboxIndex = idx;
+  updateLightbox();
+  document.getElementById('lightbox').classList.add('open');
+}
+function updateLightbox(){
+  const g = currentGalleryData[state.lightboxIndex];
+  if (!g) return;
+  document.getElementById('lb-img').src = safeImg(g.src, g.caption);
+  document.getElementById('lb-img').alt = g.caption || '';
+  document.getElementById('lb-caption').textContent = g.caption || '';
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+function lightboxNav(dir){
+  if (!currentGalleryData.length) return;
+  state.lightboxIndex = (state.lightboxIndex + dir + currentGalleryData.length) % currentGalleryData.length;
+  updateLightbox();
+}
+
+/* ---- renderLetter ---- */
+function renderLetter(gift){
+  const full = document.getElementById('letterFull');
+  full.innerHTML = `<p>${escapeHtml(gift.letter || '').replace(/\n/g,'</p><p>')}</p>
+    <div class="letter-signature">${escapeHtml(gift.signature||'')}</div>
+    <div class="letter-date">${gift.startDate ? escapeHtml(gift.startDate) : ''}</div>`;
+  full.classList.remove('show');
+  document.getElementById('letterEnvelope').classList.remove('opened');
+}
+
+/* ---- renderMusic ---- */
+function renderMusic(music){
+  const player = document.getElementById('music-player');
+  const audio = document.getElementById('audioEl');
+  document.getElementById('musicTitle').textContent = music.title || 'بدون موسيقى';
+  document.getElementById('musicArtist').textContent = music.artist || '';
+  if (music.url){
+    audio.src = music.url;
+    player.classList.add('show');
+  } else {
+    player.classList.remove('show');
+  }
+  state.musicPlaying = false;
+  document.getElementById('vinylDisc').classList.remove('playing');
+  document.getElementById('music-toggle').textContent = '▶';
+}
+
+/* ---- updateLoveTimer ---- */
+function startLoveTimer(startDate){
+  clearInterval(state.timerInterval);
+  if (!startDate || isNaN(startDate.getTime())){
+    ['tYears','tMonths','tDays','tHours','tMinutes','tSeconds'].forEach(id=> document.getElementById(id).textContent = '00');
+    return;
+  }
+  updateLoveTimer(startDate);
+  state.timerInterval = setInterval(()=> updateLoveTimer(startDate), 1000);
+}
+function updateLoveTimer(startDate){
+  const now = new Date();
+  let diffMs = now - startDate;
+  if (diffMs < 0) diffMs = 0;
+  let totalSeconds = Math.floor(diffMs/1000);
+  const years = Math.floor(totalSeconds / (365.25*24*3600));
+  totalSeconds -= Math.floor(years*365.25*24*3600);
+  const months = Math.floor(totalSeconds / (30.44*24*3600));
+  totalSeconds -= Math.floor(months*30.44*24*3600);
+  const days = Math.floor(totalSeconds / (24*3600));
+  totalSeconds -= days*24*3600;
+  const hours = Math.floor(totalSeconds/3600);
+  totalSeconds -= hours*3600;
+  const minutes = Math.floor(totalSeconds/60);
+  const seconds = totalSeconds - minutes*60;
+  setTimerVal('tYears', years);
+  setTimerVal('tMonths', months);
+  setTimerVal('tDays', days);
+  setTimerVal('tHours', hours);
+  setTimerVal('tMinutes', minutes);
+  setTimerVal('tSeconds', seconds);
+}
+function setTimerVal(id, val){
+  const el = document.getElementById(id);
+  const str = String(val).padStart(2,'0');
+  if (el.textContent !== str){
+    el.textContent = str;
+    el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick');
+  }
+}
+
+/* ---- showSecret ---- */
+function showSecret(){
+  document.getElementById('secretReveal').classList.add('show');
+}
+
+/* ---- resetExperience ---- */
+function resetExperience(){
+  window.scrollTo({top:0, behavior: state.reducedMotion ? 'auto' : 'smooth'});
+  document.getElementById('secretReveal').classList.remove('show');
+  document.getElementById('letterFull').classList.remove('show');
+  document.getElementById('letterEnvelope').classList.remove('opened');
+  setTimeout(()=> sequenceRecipientReveal(state.currentGift), 500);
+}
+
+/* ===================================================================
+   11/12/13. IntersectionObserver reveals + ANIMATION CONTROLLERS
+=================================================================== */
+let revealObserver = null;
+function observeReveal(nodeList){
+  if (!revealObserver){
+    revealObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.18});
+  }
+  nodeList.forEach(n => revealObserver.observe(n));
+}
+
+function initAnimations(){
+  observeReveal(document.querySelectorAll('.timeline-item'));
+  // final section sequential lines on scroll into view
+  const finalObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if (entry.isIntersecting){
+        const d = state.reducedMotion ? 80 : 500;
+        setTimeout(()=> document.getElementById('finalLine1').classList.add('show'), 0);
+        setTimeout(()=> document.getElementById('finalLine2').classList.add('show'), d);
+        setTimeout(()=> document.getElementById('finalNames').classList.add('show'), d*2);
+        setTimeout(()=> document.getElementById('finalForever').classList.add('show'), d*2.6);
+        finalObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.4});
+  finalObserver.observe(document.getElementById('finalSection'));
+}
+
+/* ---- Particle background (canvas), theme-aware ---- */
+let particleCtx, particleCanvas, particles = [], animFrame;
+function initParticles(){
+  particleCanvas = document.getElementById('bg-canvas');
+  particleCtx = particleCanvas.getContext('2d');
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  const count = state.reducedMotion ? 0 : (window.innerWidth < 640 ? 40 : 70);
+  particles = [];
+  for (let i=0;i<count;i++) particles.push(makeParticle());
+  if (!state.reducedMotion) animateParticles();
+}
+function resizeCanvas(){
+  particleCanvas.width = window.innerWidth * devicePixelRatio;
+  particleCanvas.height = window.innerHeight * devicePixelRatio;
+  particleCanvas.style.width = window.innerWidth+'px';
+  particleCanvas.style.height = window.innerHeight+'px';
+  particleCtx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+}
+function currentThemeColors(){
+  const theme = document.documentElement.getAttribute('data-theme');
+  const map = {
+    midnight:['#c9a15a','#f0c9d6'], rose:['#eec7bf','#f7d6e0'], elegant:['#d8b568','#f0d99a'],
+    galaxy:['#8fd3ff','#c9b8ff'], minimal:['#a9776a','#c98f83'], sunset:['#f3a35c','#ffcf9e']
+  };
+  return map[theme] || map.midnight;
+}
+function makeParticle(){
+  const colors = currentThemeColors();
+  const isHeart = Math.random() < 0.18;
+  return {
+    x: Math.random()*window.innerWidth,
+    y: Math.random()*window.innerHeight,
+    r: isHeart ? (6+Math.random()*8) : (0.6+Math.random()*1.6),
+    vy: -(0.12+Math.random()*0.3),
+    vx: (Math.random()-0.5)*0.15,
+    o: 0.15+Math.random()*0.5,
+    color: colors[Math.floor(Math.random()*colors.length)],
+    heart: isHeart,
+    tw: Math.random()*Math.PI*2
+  };
+}
+function animateParticles(){
+  const w = window.innerWidth, h = window.innerHeight;
+  particleCtx.clearRect(0,0,w,h);
+  const opacity = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--particle-opacity')) || 0.9;
+  particles.forEach(p=>{
+    p.y += p.vy; p.x += p.vx; p.tw += 0.02;
+    if (p.y < -20){ p.y = h+20; p.x = Math.random()*w; }
+    if (p.x < -20) p.x = w+20; if (p.x > w+20) p.x = -20;
+    particleCtx.globalAlpha = p.o * opacity * (0.7+0.3*Math.sin(p.tw));
+    particleCtx.fillStyle = p.color;
+    if (p.heart){
+      drawHeart(particleCtx, p.x, p.y, p.r);
+    } else {
+      particleCtx.beginPath();
+      particleCtx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      particleCtx.fill();
+    }
+  });
+  particleCtx.globalAlpha = 1;
+  animFrame = requestAnimationFrame(animateParticles);
+}
+function drawHeart(ctx,x,y,size){
+  ctx.save();
+  ctx.translate(x,y);
+  ctx.scale(size/10, size/10);
+  ctx.beginPath();
+  ctx.moveTo(0,3);
+  ctx.bezierCurveTo(0,-2,-6,-2,-6,2);
+  ctx.bezierCurveTo(-6,6,0,9,0,12);
+  ctx.bezierCurveTo(0,9,6,6,6,2);
+  ctx.bezierCurveTo(6,-2,0,-2,0,3);
+  ctx.fill();
+  ctx.restore();
+}
+
+/* cursor glow (desktop only, decorative) */
+function initCursorGlow(){
+  const glow = document.getElementById('cursorGlow');
+  if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  window.addEventListener('mousemove', (e)=>{
+    glow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%,-50%)`;
+    glow.classList.add('active');
+  });
+  window.addEventListener('mouseleave', ()=> glow.classList.remove('active'));
+}
+
+/* ===================================================================
+   7. GIFT CREATOR — logic
+=================================================================== */
+function initCreator(){
+  state.draft = blankGift();
+  state.creatorStep = 1;
+  buildThemeGrid();
+  buildProgressDots();
+  renderMemoryList();
+  renderGalleryEditList();
+  goToStep(1);
+  wireCreatorFieldEvents();
+  updateCreatorPreview();
+}
+
+function buildProgressDots(){
+  const wrap = document.getElementById('creatorProgress');
+  wrap.innerHTML = '';
+  for (let i=1;i<=state.totalSteps;i++){
+    const d = document.createElement('div');
+    d.className = 'progress-dot';
+    d.dataset.step = i;
+    wrap.appendChild(d);
+  }
+  refreshProgressDots();
+}
+function refreshProgressDots(){
+  document.querySelectorAll('.progress-dot').forEach(d=>{
+    const s = parseInt(d.dataset.step,10);
+    d.classList.toggle('done', s < state.creatorStep);
+    d.classList.toggle('active', s === state.creatorStep);
+  });
+}
+
+function buildThemeGrid(){
+  const grid = document.getElementById('themeGrid');
+  grid.innerHTML = '';
+  THEMES.forEach(t=>{
+    const el = document.createElement('div');
+    el.className = 'theme-choice' + (state.draft.theme === t.id ? ' selected' : '');
+    el.dataset.theme = t.id;
+    el.innerHTML = `<div class="theme-swatch" style="background:linear-gradient(135deg, ${t.c1}, ${t.c2});"></div><span>${t.name}</span>`;
+    el.addEventListener('click', ()=>{
+      state.draft.theme = t.id;
+      document.querySelectorAll('.theme-choice').forEach(c=>c.classList.remove('selected'));
+      el.classList.add('selected');
+      updateCreatorPreview();
+    });
+    grid.appendChild(el);
+  });
+}
+
+function goToStep(n){
+  state.creatorStep = Math.max(1, Math.min(state.totalSteps, n));
+  document.querySelectorAll('.step-panel').forEach(p=>{
+    p.classList.toggle('active', parseInt(p.dataset.step,10) === state.creatorStep);
+  });
+  document.getElementById('stepBackBtn').disabled = state.creatorStep === 1;
+  document.getElementById('stepNextBtn').classList.toggle('hidden', state.creatorStep === state.totalSteps);
+  document.getElementById('createGiftBtn').classList.toggle('hidden', state.creatorStep !== state.totalSteps);
+  refreshProgressDots();
+  document.querySelector('.creator-panel').scrollTo?.(0,0);
+}
+
+function collectFieldsIntoDraft(){
+  const g = state.draft;
+  g.sender = document.getElementById('f-sender').value.trim();
+  g.receiver = document.getElementById('f-receiver').value.trim();
+  g.lang = document.getElementById('f-lang').value;
+  g.startDate = document.getElementById('f-date').value;
+  g.startTime = document.getElementById('f-time').value;
+  g.mainMessage = document.getElementById('f-mainmsg').value.trim();
+  g.letter = document.getElementById('f-letter').value.trim();
+  g.signature = document.getElementById('f-signature').value.trim();
+  g.music.title = document.getElementById('f-song-title').value.trim();
+  g.music.artist = document.getElementById('f-song-artist').value.trim();
+  g.music.url = document.getElementById('f-song-url').value.trim();
+  g.secretMessage = document.getElementById('f-secret').value.trim();
+  g.password = document.getElementById('f-password').value.trim();
+}
+
+function wireCreatorFieldEvents(){
+  const ids = ['f-sender','f-receiver','f-lang','f-date','f-time','f-mainmsg','f-letter','f-signature',
+    'f-song-title','f-song-artist','f-song-url','f-secret','f-password'];
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    el.addEventListener('input', ()=>{ collectFieldsIntoDraft(); updateCreatorPreview(); });
+    el.addEventListener('change', ()=>{ collectFieldsIntoDraft(); updateCreatorPreview(); });
+  });
+}
+
+/* memories repeat list (creator) */
+function renderMemoryList(){
+  const wrap = document.getElementById('memoriesList');
+  wrap.innerHTML = '';
+  if (!state.draft.memories.length){
+    wrap.innerHTML = '<p class="text-muted" style="font-size:.85rem;">لا توجد ذكريات بعد. أضف أول محطة في قصتكما.</p>';
+  }
+  state.draft.memories.forEach((m, idx)=>{
+    const item = document.createElement('div');
+    item.className = 'repeat-item';
+    item.innerHTML = `
+      <div class="field-row" style="margin-bottom:8px;">
+        <div class="field" style="margin-bottom:0;"><label>العنوان</label><input type="text" data-k="title" data-i="${idx}" value="${escapeHtml(m.title)}" placeholder="أول مرة اتكلمنا"></div>
+        <div class="field" style="margin-bottom:0;"><label>التاريخ</label><input type="text" data-k="date" data-i="${idx}" value="${escapeHtml(m.date)}" placeholder="يناير 2024"></div>
+      </div>
+      <div class="field" style="margin-bottom:8px;"><label>الوصف</label><textarea data-k="desc" data-i="${idx}" placeholder="اليوم الذي بدأ فيه كل شيء...">${escapeHtml(m.desc)}</textarea></div>
+      <div class="field" style="margin-bottom:0;"><label>رابط صورة (اختياري)</label><input type="url" data-k="img" data-i="${idx}" value="${escapeHtml(m.img)}" placeholder="https://..."></div>
+      <div class="ri-actions"><button class="icon-btn danger" data-remove="${idx}" aria-label="حذف">✕</button></div>`;
+    wrap.appendChild(item);
+  });
+  wrap.querySelectorAll('input,textarea').forEach(el=>{
+    el.addEventListener('input', (e)=>{
+      const i = parseInt(e.target.dataset.i,10), k = e.target.dataset.k;
+      state.draft.memories[i][k] = e.target.value;
+      updateCreatorPreview();
+    });
+  });
+  wrap.querySelectorAll('[data-remove]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      state.draft.memories.splice(parseInt(e.target.dataset.remove,10),1);
+      renderMemoryList(); updateCreatorPreview();
+    });
+  });
+}
+function addMemory(){
+  state.draft.memories.push({title:'',date:'',desc:'',img:''});
+  renderMemoryList();
+}
+
+/* gallery repeat list (creator) */
+function renderGalleryEditList(){
+  const wrap = document.getElementById('galleryList');
+  wrap.innerHTML = '';
+  if (!state.draft.gallery.length){
+    wrap.innerHTML = '<p class="text-muted" style="font-size:.85rem;">لم تُضف صور بعد.</p>';
+  }
+  state.draft.gallery.forEach((g, idx)=>{
+    const item = document.createElement('div');
+    item.className = 'repeat-item';
+    item.innerHTML = `
+      <div class="field" style="margin-bottom:8px;"><label>رابط الصورة</label><input type="url" data-k="src" data-i="${idx}" value="${escapeHtml(g.src)}" placeholder="https://..."></div>
+      <div class="field" style="margin-bottom:0;"><label>تعليق (اختياري)</label><input type="text" data-k="caption" data-i="${idx}" value="${escapeHtml(g.caption)}" placeholder="لحظة لا تُنسى"></div>
+      <div class="ri-actions"><button class="icon-btn danger" data-remove="${idx}" aria-label="حذف">✕</button></div>`;
+    wrap.appendChild(item);
+  });
+  wrap.querySelectorAll('input').forEach(el=>{
+    el.addEventListener('input', (e)=>{
+      const i = parseInt(e.target.dataset.i,10), k = e.target.dataset.k;
+      state.draft.gallery[i][k] = e.target.value;
+      updateCreatorPreview();
+    });
+  });
+  wrap.querySelectorAll('[data-remove]').forEach(btn=>{
+    btn.addEventListener('click', (e)=>{
+      state.draft.gallery.splice(parseInt(e.target.dataset.remove,10),1);
+      renderGalleryEditList(); updateCreatorPreview();
+    });
+  });
+}
+function addGalleryImage(){
+  state.draft.gallery.push({src:'', caption:''});
+  renderGalleryEditList();
+}
+
+/* live preview: compact static render of the gift inside the phone frame */
+function updateCreatorPreview(){
+  const g = state.draft;
+  const isAr = g.lang !== 'en';
+  const dt = g.startDate ? new Date(g.startDate + 'T' + (g.startTime||'00:00')) : null;
+  const themeColors = THEMES.find(t=>t.id===g.theme) || THEMES[0];
+  const wrap = document.getElementById('creatorPreviewContent');
+  wrap.innerHTML = `
+    <div style="text-align:center; font-family:var(--font-script); color:${themeColors.c2}; font-size:1.6rem; margin-bottom:6px;">
+      ${escapeHtml(g.sender||'Ali')} ❤️ ${escapeHtml(g.receiver||'Shahd')}
+    </div>
+    <div style="text-align:center; font-size:.7rem; color:var(--ink-dim); margin-bottom:18px;">
+      Since ${dt && !isNaN(dt.getTime()) ? formatLongDate(dt,isAr) : '—'}
+    </div>
+    <div style="text-align:center; font-family:var(--font-display); font-size:.95rem; color:var(--ivory); margin-bottom:20px; padding:0 6px;">
+      ${escapeHtml(g.mainMessage || (isAr ? 'اكتب رسالتك الرئيسية...' : 'Write your main message...'))}
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:22px;">
+      ${['Y','M','D'].map(l=>`<div style="text-align:center; padding:8px 2px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);">
+        <div style="font-family:var(--font-display); font-size:1rem; color:${themeColors.c2};">00</div><div style="font-size:.55rem; color:var(--ink-dim);">${l}</div></div>`).join('')}
+    </div>
+    <div style="font-size:.68rem; letter-spacing:1px; color:var(--gold-soft); margin-bottom:8px;">Our Story</div>
+    ${(g.memories||[]).slice(0,3).map(m=>`
+      <div style="padding:10px; border-radius:10px; background:rgba(255,255,255,.05); margin-bottom:8px;">
+        <div style="font-size:.7rem; color:${themeColors.c2};">${escapeHtml(m.date||'')}</div>
+        <div style="font-size:.78rem; font-weight:700; margin-top:2px;">${escapeHtml(m.title||'(بدون عنوان)')}</div>
+      </div>`).join('') || `<div style="font-size:.72rem; color:var(--ink-dim);">لا توجد محطات بعد</div>`}
+    <div style="font-size:.68rem; letter-spacing:1px; color:var(--gold-soft); margin:16px 0 8px;">Gallery</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px;">
+      ${(g.gallery||[]).slice(0,6).map(gi=>`<div style="aspect-ratio:1; border-radius:6px; overflow:hidden; background:rgba(255,255,255,.08);">
+        ${gi.src ? `<img src="${safeImg(gi.src,'')}" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">` : ''}
+      </div>`).join('') || `<div style="font-size:.72rem; color:var(--ink-dim); grid-column:1/-1;">لا توجد صور بعد</div>`}
+    <div style="text-align:center; margin-top:20px; font-size:.7rem; color:var(--ink-dim);">💌 ${g.letter ? (isAr?'رسالة حب جاهزة':'Love letter ready') : (isAr?'لم تُكتب الرسالة بعد':'No letter yet')}</div>
+    ${g.music.url ? `<div style="text-align:center; margin-top:10px; font-size:.7rem; color:var(--gold-soft);">🎵 ${escapeHtml(g.music.title||'Track')}</div>` : ''}
+    ${g.secretMessage ? `<div style="text-align:center; margin-top:14px; font-size:.7rem; color:var(--pink);">❤️ يحتوي على مفاجأة سرية</div>` : ''}
+  `;
+}
+
+/* create / save / draft actions */
+async function createGiftFromDraft(){
+  collectFieldsIntoDraft();
+  if (!state.draft.receiver){
+    showToast('من فضلك أدخل اسم المستلم');
+    goToStep(1);
+    return;
+  }
+  const saved = await saveGift(JSON.parse(JSON.stringify(state.draft)));
+  const url = `${location.origin}${location.pathname}?gift=${saved.id}`;
+  document.getElementById('link-box').textContent = url;
+  document.getElementById('link-box').dataset.url = url;
+  showScreen('link-screen');
+}
+
+function saveDraftLocally(){
+  collectFieldsIntoDraft();
+  try{
+    localStorage.setItem('foreverGift_draft', JSON.stringify(state.draft));
+    showToast('تم حفظ المسودة على هذا الجهاز ✔');
+  }catch(e){ showToast('تعذر حفظ المسودة'); }
+}
+
+/* ===================================================================
+   ADMIN
+=================================================================== */
+async function initAdmin(){
+  showScreen('admin-screen');
+  applyTheme('midnight');
+  updateStorageModeLabel();
+  await refreshAdminList();
+}
+async function refreshAdminList(){
+  const gifts = await listGiftsForAdmin();
+  document.getElementById('statTotal').textContent = gifts.length;
+  document.getElementById('statActive').textContent = gifts.filter(g=>g.active!==false).length;
+  const list = document.getElementById('adminList');
+  if (!gifts.length){
+    list.innerHTML = '<p class="text-muted" style="padding:16px 0;">لا توجد هدايا محفوظة بعد.</p>';
+    return;
+  }
+  list.innerHTML = gifts.map(g => `
+    <div class="admin-row">
+      <div>
+        <div class="ar-name">${escapeHtml(g.sender||'?')} ❤️ ${escapeHtml(g.receiver||'?')}</div>
+        <div class="ar-meta">ID: ${escapeHtml(g.id)} · ${new Date(g.createdAt||0).toLocaleDateString()}</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="tag-pill">${g.active===false ? 'معطّلة':'مفعّلة'}</span>
+        <button class="icon-btn" data-view="${g.id}" aria-label="فتح">👁</button>
+        <button class="icon-btn" data-toggle="${g.id}" aria-label="تبديل التفعيل">⏻</button>
+        <button class="icon-btn danger" data-del="${g.id}" aria-label="حذف">🗑</button>
+      </div>
+    </div>`).join('');
+  list.querySelectorAll('[data-view]').forEach(b=> b.addEventListener('click', e=> window.open(`${location.pathname}?gift=${e.target.dataset.view}`,'_blank')));
+  list.querySelectorAll('[data-del]').forEach(b=> b.addEventListener('click', async e=>{
+    await deleteGift(e.target.dataset.del); await refreshAdminList(); showToast('تم حذف الهدية');
+  }));
+  list.querySelectorAll('[data-toggle]').forEach(b=> b.addEventListener('click', async e=>{
+    const id = e.target.dataset.toggle;
+    const g = await loadGift(id);
+    if (g){ g.active = g.active === false ? true : false; await saveGift(g); await refreshAdminList(); }
+  }));
+}
+
+/* ===================================================================
+   11. EVENT LISTENERS
+=================================================================== */
+function bindEvents(){
+  document.getElementById('openGiftBtn').addEventListener('click', openGiftAnimation);
+
+  document.getElementById('passwordSubmit').addEventListener('click', ()=>{
+    const val = document.getElementById('passwordInput').value.trim();
+    if (state.currentGift && val && val === state.currentGift.password){
+      unlockGift(state.currentGift);
+    } else {
+      const err = document.getElementById('passwordError');
+      err.classList.remove('show'); void err.offsetWidth; err.classList.add('show');
+    }
+  });
+  document.getElementById('passwordInput').addEventListener('keypress', e=>{
+    if (e.key === 'Enter') document.getElementById('passwordSubmit').click();
+  });
+
+  document.getElementById('startCreatorBtn').addEventListener('click', ()=>{
+    history.pushState({}, '', `${location.pathname}?create=1`);
+    showScreen('creator'); initCreator();
+  });
+  document.getElementById('viewDemoBtn').addEventListener('click', ()=>{
+    history.pushState({}, '', `${location.pathname}?gift=demo`);
+    openGift('demo');
+  });
+  document.getElementById('backToLanding').addEventListener('click', ()=>{
+    history.pushState({}, '', location.pathname);
+    router();
+  });
+  document.getElementById('createOwnBtn').addEventListener('click', ()=>{
+    history.pushState({}, '', `${location.pathname}?create=1`);
+    showScreen('creator'); initCreator();
+  });
+  document.getElementById('backHomeBtn').addEventListener('click', ()=>{
+    history.pushState({}, '', location.pathname); router();
+  });
+  document.getElementById('adminBack').addEventListener('click', ()=>{
+    history.pushState({}, '', location.pathname); router();
+  });
+  document.getElementById('adminCreateDemo').addEventListener('click', async ()=>{
+    const demo = getDemoGift(); demo.id = genId(); demo.createdAt = Date.now();
+    await saveGift(demo); await refreshAdminList(); showToast('تم إنشاء هدية تجريبية جديدة');
+  });
+  document.getElementById('brandLink').addEventListener('click', (e)=>{
+    e.preventDefault(); history.pushState({}, '', location.pathname); router();
+  });
+
+  // creator navigation
+  document.getElementById('stepNextBtn').addEventListener('click', ()=>{ collectFieldsIntoDraft(); goToStep(state.creatorStep+1); updateCreatorPreview(); });
+  document.getElementById('stepBackBtn').addEventListener('click', ()=>{ collectFieldsIntoDraft(); goToStep(state.creatorStep-1); });
+  document.getElementById('createGiftBtn').addEventListener('click', createGiftFromDraft);
+  document.getElementById('saveDraftBtn').addEventListener('click', saveDraftLocally);
+  document.getElementById('addMemoryBtn').addEventListener('click', addMemory);
+  document.getElementById('addGalleryBtn').addEventListener('click', addGalleryImage);
+
+  document.getElementById('tabEditBtn').addEventListener('click', ()=>{
+    document.getElementById('tabEditBtn').classList.add('active');
+    document.getElementById('tabPreviewBtn').classList.remove('active');
+    document.getElementById('panel-edit').classList.remove('hide');
+    document.getElementById('panel-preview').classList.remove('show');
+  });
+  document.getElementById('tabPreviewBtn').addEventListener('click', ()=>{
+    document.getElementById('tabPreviewBtn').classList.add('active');
+    document.getElementById('tabEditBtn').classList.remove('active');
+    document.getElementById('panel-edit').classList.add('hide');
+    document.getElementById('panel-preview').classList.add('show');
+  });
+
+  document.getElementById('copyLinkBtn').addEventListener('click', async ()=>{
+    const url = document.getElementById('link-box').dataset.url;
+    try{ await navigator.clipboard.writeText(url); showToast('تم نسخ الرابط ✔'); }
+    catch(e){ showToast('انسخ الرابط يدويًا'); }
+  });
+  document.getElementById('openGiftLinkBtn').addEventListener('click', ()=>{
+    const url = document.getElementById('link-box').dataset.url;
+    location.href = url;
+  });
+
+  // gift experience interactions
+  document.getElementById('letterEnvelope').addEventListener('click', toggleLetter);
+  document.getElementById('letterEnvelope').addEventListener('keypress', e=>{ if(e.key==='Enter') toggleLetter(); });
+  document.getElementById('secretBtn').addEventListener('click', showSecret);
+  document.getElementById('replayBtn').addEventListener('click', resetExperience);
+
+  // lightbox
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', ()=> lightboxNav(-1));
+  document.getElementById('lb-next').addEventListener('click', ()=> lightboxNav(1));
+  document.getElementById('lightbox').addEventListener('click', (e)=>{ if(e.target.id==='lightbox') closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+  });
+  let touchStartX = 0;
+  const lb = document.getElementById('lightbox');
+  lb.addEventListener('touchstart', e=> touchStartX = e.touches[0].clientX, {passive:true});
+  lb.addEventListener('touchend', e=>{
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) lightboxNav(dx > 0 ? -1 : 1);
+  }, {passive:true});
+
+  // music player
+  document.getElementById('music-toggle').addEventListener('click', toggleMusic);
+  const audio = document.getElementById('audioEl');
+  audio.addEventListener('timeupdate', ()=>{
+    if (audio.duration){
+      document.getElementById('musicProgressBar').style.width = (audio.currentTime/audio.duration*100)+'%';
+    }
+  });
+  audio.addEventListener('ended', ()=>{
+    state.musicPlaying = false;
+    document.getElementById('vinylDisc').classList.remove('playing');
+    document.getElementById('music-toggle').textContent = '▶';
+  });
+  audio.addEventListener('error', ()=>{ showToast('تعذر تشغيل هذا الملف الصوتي'); });
+
+  window.addEventListener('popstate', router);
+}
+
+function toggleLetter(){
+  const env = document.getElementById('letterEnvelope');
+  const full = document.getElementById('letterFull');
+  const opening = !env.classList.contains('opened');
+  env.classList.toggle('opened');
+  if (opening){
+    setTimeout(()=> full.classList.add('show'), state.reducedMotion ? 50 : 500);
+  } else {
+    full.classList.remove('show');
+  }
+}
+
+function toggleMusic(){
+  const audio = document.getElementById('audioEl');
+  if (!audio.src){ showToast('لا توجد موسيقى مضافة لهذه الهدية'); return; }
+  if (state.musicPlaying){
+    audio.pause();
+    state.musicPlaying = false;
+  } else {
+    audio.play().catch(()=> showToast('اضغط مرة أخرى لتشغيل الصوت'));
+    state.musicPlaying = true;
+  }
+  document.getElementById('vinylDisc').classList.toggle('playing', state.musicPlaying);
+  document.getElementById('music-toggle').textContent = state.musicPlaying ? '❚❚' : '▶';
+}
+
+/* ===================================================================
+   13. INITIALIZATION
+=================================================================== */
+function initApp(){
+  initFirebaseIfConfigured();
+  initParticles();
+  initCursorGlow();
+  bindEvents();
+  router();
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+</html>
